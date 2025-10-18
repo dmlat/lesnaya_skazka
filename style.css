@@ -18,7 +18,7 @@ body {
 
 /* Hero Section */
 .hero {
-    background-image: url('assets/hero.png');
+    background-image: url('assets/webp/hero.webp');
     background-size: cover;
     background-position: center;
     color: white;
@@ -76,12 +76,13 @@ h3 {
     padding-top: 2rem;
 }
 
-.day-1 .day-content img {
-    width: 100%;
-    height: auto;
-    border-radius: 5px;
+.day-1-media img,
+.day-1-media .slider-container {
+    aspect-ratio: 1 / 1;
     object-fit: cover;
-    max-height: 450px;
+    margin-bottom: 1rem;
+    border-radius: 5px;
+    width: 100%;
 }
 
 .event {
@@ -304,6 +305,13 @@ footer {
 
     .day-1 .day-content img {
         width: 100%;
+    }
+
+    .day-1-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;
+        align-items: start;
     }
 
     .details-flex-container {

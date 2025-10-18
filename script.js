@@ -1,16 +1,31 @@
-let slideIndex = 0;
-showSlides();
+document.addEventListener("DOMContentLoaded", function() {
+    
+    function initializeSlider(slideClass, interval) {
+        let slideIndex = 0;
+        const slides = document.getElementsByClassName(slideClass);
 
-function showSlides() {
-    let i;
-    let slides = document.getElementsByClassName("slide");
-    for (i = 0; i < slides.length; i++) {
-        slides[i].style.display = "none";
+        if (slides.length === 0) {
+            return; 
+        }
+
+        function showSlides() {
+            for (let i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+            slideIndex++;
+            if (slideIndex > slides.length) {
+                slideIndex = 1;
+            }
+            slides[slideIndex - 1].style.display = "block";
+            setTimeout(showSlides, interval);
+        }
+
+        showSlides();
     }
-    slideIndex++;
-    if (slideIndex > slides.length) {slideIndex = 1}
-    slides[slideIndex-1].style.display = "block";
-    setTimeout(showSlides, 3000); // Change image every 3 seconds
-}
+
+    initializeSlider("food-slide", 3000);
+    initializeSlider("banya-slide", 2500);
+
+});
 
 
